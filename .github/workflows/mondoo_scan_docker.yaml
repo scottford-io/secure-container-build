@@ -1,0 +1,21 @@
+name: mondoo-scan-docker
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Scan with Mondoo
+        uses: mondoohq/actions@main
+        with:
+          service_account_credentials: ${{ secrets.MONDOO_CLIENT_ACCOUNT }}
+          scan_type: "docker_image_from_dockerfile"
+          path: "Dockerfile"
+          output_format: compact
