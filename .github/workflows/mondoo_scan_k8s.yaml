@@ -19,3 +19,4 @@ jobs:
           scan_type: k8s
           path: dvwa-eks-deployment.yaml
           output_format: compact
+          score_threshold: 60
