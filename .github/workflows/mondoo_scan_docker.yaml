@@ -19,3 +19,4 @@ jobs:
           scan_type: "docker_image_from_dockerfile"
           path: "Dockerfile"
           output_format: compact
+          score_threshold: 60
